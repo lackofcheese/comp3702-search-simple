@@ -8,13 +8,17 @@ import search.State;
 /**
  * An Iterative Deepening Search, implemented by successive depth-limited
  * searches with increasing depth.
+ * 
  * @author lackofcheese
  */
 public class IterativeDeepeningSearch extends AbstractSearchAlgorithm {
-	/** 
+	/**
 	 * Constructs an IDS with the given parameters.
-	 * @param root the root state of the search.
-	 * @param goal the goal state of the search.
+	 * 
+	 * @param root
+	 *            the root state of the search.
+	 * @param goal
+	 *            the goal state of the search.
 	 */
 	public IterativeDeepeningSearch(State root, State goal) {
 		super(root, goal);
@@ -28,14 +32,15 @@ public class IterativeDeepeningSearch extends AbstractSearchAlgorithm {
 	private double goalCost;
 	/** The path taken to reach the goal state (if found). */
 	private List<State> goalPath;
-	
+
 	@Override
 	public void search() {
 		this.goalFound = false;
-		
-		for (int maxDepth = 0; ; maxDepth++) {
+
+		for (int maxDepth = 0;; maxDepth++) {
 			System.out.println("Depth: " + maxDepth);
-			DepthLimitedSearch dls = new DepthLimitedSearch(maxDepth, getRoot(), getGoal());
+			DepthLimitedSearch dls = new DepthLimitedSearch(maxDepth,
+					getRoot(), getGoal());
 			dls.search();
 			if (dls.goalFound()) {
 				this.goalFound = true;
