@@ -94,6 +94,18 @@ public abstract class AbstractSearchAlgorithm {
 	 * taken to do it to standard output.
 	 */
 	public void verboseSearch() {
+		verboseSearch(true);
+	}
+
+	/**
+	 * Conducts a search, displaying the results of the search and the time
+	 * taken to do it to standard output.
+	 * 
+	 * @param printPath
+	 *            sets whether the path taken will be printed; since the path
+	 *            can be quite long, this might be unwanted.
+	 */
+	public void verboseSearch(boolean printPath) {
 		long startTime = System.currentTimeMillis();
 		this.search();
 		System.out.println("Time taken: "
@@ -105,9 +117,8 @@ public abstract class AbstractSearchAlgorithm {
 			System.out.println(String.format(
 					"Arrived at %s for cost %.2f at depth %d", goal, finalCost,
 					finalDepth));
-			List<State> path = this.getGoalPath();
-			if (path.size() < 100) {
-				System.out.println("Path taken:" + path);
+			if (printPath) {
+				System.out.println("Path taken:" + this.getGoalPath());
 			}
 		} else {
 			System.out.println("Failed to find the goal!");
