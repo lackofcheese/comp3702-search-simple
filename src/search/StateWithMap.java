@@ -29,6 +29,13 @@ public abstract class StateWithMap implements State {
 		this.succMap.put(succ, cost);
 	}
 
+	/**
+	 * Clears the successors of this state, so it will have no successors again.
+	 */
+	public void clearSuccessors() {
+		this.succMap = new HashMap<StateWithMap, Double>();
+	}
+
 	@Override
 	public List<State> getSuccessors() {
 		return new ArrayList<State>(succMap.keySet());

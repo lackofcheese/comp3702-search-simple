@@ -90,8 +90,8 @@ public abstract class AbstractSearchAlgorithm {
 	public abstract void search();
 
 	/**
-	 * Conducts a search, displaying the results of the search and the time
-	 * taken to do it to standard output.
+	 * Conducts a search, displaying the results of the search (including the
+	 * path taken) and the time taken to do it to standard output.
 	 */
 	public void verboseSearch() {
 		verboseSearch(true);
